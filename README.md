@@ -14,6 +14,10 @@
 - Implemented Sign out
 - Update Profile
 - fetch from TMDB movies
+- BugFix: Sign up user displayName and profile picture update
+- BugFix: if the user is not logged in redirect/ browse to login page and vice-versa
+- Unsubscribe on AuthStateChanged callback
+- Add hardcoded values to the constants file
 
 ## Features
 
@@ -65,3 +69,8 @@
 - check users - https://console.firebase.google.com/project/netflix-gpt-e408b/authentication/users
 - firebase project url = https://console.firebase.google.com/project/netflix-gpt-e408b/overview
 - firebase documentaion url = https://firebase.google.com/docs/auth/web/manage-users?hl=en
+
+## TMDB setup
+ 
+- go to profile themoviedb.org/settings/profile 
+    - choose API option use API key and documentation

@@ -8,13 +8,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { USER_AVATAR } from "../utils/constant";
 import { addUser } from "../redux/userReducer";
 import { useDispatch } from "react-redux";
+import { getUserObject } from "../utils/methods";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -38,8 +37,6 @@ const Login = () => {
   //   setErrorMessage(message);
   // };
 
-  console.log("errorMessage ", errorMessage);
-
   return (
     <div>
       <Header />
@@ -59,7 +56,6 @@ const Login = () => {
               .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                navigate("/browse");
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -70,15 +66,14 @@ const Login = () => {
             //Sign up Logic
             createUserWithEmailAndPassword(auth, values.email, values.password)
               .then((userCredential) => {
+                // Signed in
                 const user = userCredential.user;
                 updateProfile(user, {
                   displayName: values.name,
                   photoURL: USER_AVATAR,
                 })
                   .then(() => {
-                    dispatch(addUser(auth.currentUser));
-
-                    navigate("/browse");
+                    dispatch(addUser(getUserObject(auth.currentUser)));
                   })
                   .catch((error) => {
                     setErrorMessage(error.message);
@@ -87,8 +82,7 @@ const Login = () => {
               .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                setErrorMessage(errorCode + " " + errorMessage);
-                // ..
+                setErrorMessage(errorCode + " - " + errorMessage);
               });
           }
           setSubmitting(false);
