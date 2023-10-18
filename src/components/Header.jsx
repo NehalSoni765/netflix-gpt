@@ -14,7 +14,7 @@ const Header = () => {
   const userStore = useSelector((store) => store.user);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const subscribe = onAuthStateChanged(auth, (user) => {
       if (user?.email) {
         // User sign-in
         dispatch(addUser(getUserObject(user)));
@@ -25,6 +25,7 @@ const Header = () => {
         navigate("/");
       }
     });
+    return () => subscribe;
   }, []);
 
   const handleSignOut = () => {
