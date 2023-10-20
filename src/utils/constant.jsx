@@ -10,8 +10,12 @@ export const API_OPTIONS = {
     Authorization: "Bearer " + import.meta.env.VITE_REACT_APP_TMDB_KEY,
   },
 };
-
+export const TOP_RATED_API = "https://api.themoviedb.org/3/movie/top_rated";
+export const UPCOMING_API = "https://api.themoviedb.org/3/movie/upcoming";
+export const POPULAR_MOVIES_API = "https://api.themoviedb.org/3/movie/popular";
 export const MOVIE_NOW_PLAYING =
   "https://api.themoviedb.org/3/movie/now_playing?page=1";
 export const MOVIE_VIDEO_API =
   "https://api.themoviedb.org/3/movie/movie_id/videos";
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";

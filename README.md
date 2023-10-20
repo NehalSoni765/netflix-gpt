@@ -101,3 +101,7 @@
 - filter based on trailer where get an key 
 > generate link: https://www.youtube.com/watch?v=inN061MtPOg where key is inN061MtPOg 
 - open link, click on share, click embed and copy-paste into videoBackground
+
+# fetch image url 
+
+- go to google and search tmdb image [url](https://developer.themoviedb.org/docs/image-basics)
