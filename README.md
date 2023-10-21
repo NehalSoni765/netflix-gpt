@@ -113,6 +113,8 @@
 
 - go to google and search tmdb image [url](https://developer.themoviedb.org/docs/image-basics)
 
-# gpt
+# gpt API
 
 - with help of GPT plugin BUild Neflix gpt search
+- register account in https://platform.openai.com/
+- click on personal log > API Key >

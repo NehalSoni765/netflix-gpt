@@ -55,7 +55,7 @@ const Header = () => {
       {userStore?.email && (
         <div className="flex p-2">
           {showGptSearch && (
-            <div class="relative inline-block text-left">
+            <div className="relative inline-block text-left">
               <select
                 className="p-2 bg-gray-900 text-white rounded-md m-2"
                 onClick={handleLanguageChange}
