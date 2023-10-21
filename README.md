@@ -18,10 +18,10 @@
 - BugFix: if the user is not logged in redirect/ browse to login page and vice-versa
 - Unsubscribe on AuthStateChanged callback
 - Add hardcoded values to the constants file
-- Register TMDB now playing API and create API KEY and get access token 
-- Get Data from TMDB 
+- Register TMDB now playing API and create API KEY and get access token
+- Get Data from TMDB
 - for video in TMDB API Location
-  > movies => video  
+  > movies => video
 - Custom Hook for Now Playing Movies
 - create movieSlice
 - Update store with movies data
@@ -30,6 +30,13 @@
 - Update Store with Trailer Video
 - Embedded the youtube video and make it autoplay and mute
 - Tailwind classes to make main Container look awesome
+- Build secondary container
+- Build movie List, Card
+- TMDB Image CDN URL
+- custom hook - useNowPLayingMovies,usePopularMovies,useTopRatedMovies,useUpcomingMovies
+- GPT search Page
+- GPT search bar
+- Multi language Feature in our App
 
 ## Features
 
@@ -98,10 +105,14 @@
 
 - pass movie id
 - get result from video api
-- filter based on trailer where get an key 
-> generate link: https://www.youtube.com/watch?v=inN061MtPOg where key is inN061MtPOg 
+- filter based on trailer where get an key
+  > generate link: https://www.youtube.com/watch?v=inN061MtPOg where key is inN061MtPOg
 - open link, click on share, click embed and copy-paste into videoBackground
 
-# fetch image url 
+# fetch image url
 
 - go to google and search tmdb image [url](https://developer.themoviedb.org/docs/image-basics)
+
+# gpt
+
+- with help of GPT plugin BUild Neflix gpt search
