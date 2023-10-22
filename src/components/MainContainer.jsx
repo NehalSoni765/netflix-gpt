@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import VideoBackground from "./videoBackground";
-import VideoTitle from "./videoTitle";
+import VideoTitle from "./VideoTitle";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
@@ -12,10 +12,10 @@ const MainContainer = () => {
   const { original_title, overview, id } = mainMovie;
 
   return (
-    <div className="pt-[35%] bg-black md:pt-0">
+    <section className="pt-[30%] md:pt-0 bg-black">
       <VideoTitle title={original_title} overview={overview} />
       <VideoBackground movieId={id} />
-    </div>
+    </section>
   );
 };
 
