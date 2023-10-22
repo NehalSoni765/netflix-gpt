@@ -11,7 +11,8 @@ export const API_OPTIONS = {
     Authorization: "Bearer " + import.meta.env.VITE_REACT_APP_TMDB_KEY,
   },
 };
-export const MOVIE_BY_NAME="https://api.themoviedb.org/3/search/movie?query=movieName&include_adult=false&language=en-US&page=1"
+export const MOVIE_BY_NAME =
+  "https://api.themoviedb.org/3/search/movie?query=movieName&include_adult=false&language=en-US&page=1";
 export const TOP_RATED_API = "https://api.themoviedb.org/3/movie/top_rated";
 export const UPCOMING_API = "https://api.themoviedb.org/3/movie/upcoming";
 export const POPULAR_MOVIES_API = "https://api.themoviedb.org/3/movie/popular";
@@ -27,3 +28,4 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 export const OPEN_AI_KEY = import.meta.env.VITE_REACT_APP_OPENAI_KEY;
+export const FIREBASE_API_KEY = import.meta.env.VITE_REACT_APP_FIREBASE_API_KEY;

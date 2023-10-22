@@ -18,6 +18,7 @@
   ? Configure as a single-page app (rewrite all urls to /index.html)? No
   ? Set up automatic builds and deploys with GitHub? No
   ? File dist/index.html already exists. Overwrite? No
+- before deploy check to ready for production `firebase emulators:start`
 - firebase deploy ("https://netflix-gpt-e408b.web.app")
 
 ## Authentication Firebase
