@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Header from "./Header";
+import Header from "../components/Header";
 import { userSchema } from "../utils/validate";
 import { Formik } from "formik";
 import {
@@ -40,12 +40,9 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute">
-        <img src={BG_IMAGE_URL} />
+      <div className="fixed">
+        <img className="h-screen md:h-auto object-cover" src={BG_IMAGE_URL} />
       </div>
-      <h1 className="text-fuchsia-50 text-3xl font-semibold mb-4 text-start rounded-lg">
-        {title}
-      </h1>
       <Formik
         initialValues={{ name: "", email: "", password: "" }}
         validationSchema={userSchema(isSignInForm)}
@@ -101,8 +98,11 @@ const Login = () => {
           return (
             <form
               onSubmit={handleSubmit}
-              className="absolute bg-black p-16 m-2 text-center w-4/12 mx-auto my-24 left-0 right-0 bg-opacity-90"
+              className="absolute bg-black p-8 md:p-16 m-2 text-center w-11/12 md:w-4/12 mx-auto my-24 left-0 right-0 bg-opacity-90"
             >
+              <h1 className="text-fuchsia-50 text-3xl font-semibold mb-4 text-start rounded-lg">
+                {title}
+              </h1>
               {!isSignInForm && (
                 <>
                   <input

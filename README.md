@@ -1,11 +1,36 @@
-# NETFLIX GPT
+## Setup the project
+
+1. Fork the project
+2. Clone project using `git clone https://github.com/<YOUR-USERNAME>/netflix-gpt.git`
+3. Install dependencies `npm install`
+4. In the root directory create a `.env` file and add the TMDB API KEY and OPENAI API KEY into it.
+
+Example:
+
+```
+REACT_APP_OPENAI_KEY=sk-aasdadfsdfasdas234c
+
+REACT_APP_TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZGZhNDRlMzg4NGI2N2RlMTIyODFkNWU0ZTkzYmRmOCIsInN1YiI6IjY1MmY5MTMzZWE4NGM3MDBhZWY0ZDQ3MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zbMo332NjwlLdqTFwY3kaPp2eYihs3qLp9kmWryNEWU
+
+```
+
+5. Create a firebase project for web and enable Email/Password Authentication.
+6. Inside utils folder -> edit the firebase.js file with your firebase config and also add `export const auth = getAuth();` in the file.
+
+7. To run the server execute `npm run dev`
+
+---
+
+## NetflixGPT Project Flow and Completed Task
 
 - Create react app using: npm create vite
 - Configured TailwindCSS
 - Header
-  = Login Form
+- Rounting the app
+- Login Form
+- Signup Form
 - Form validation (formik)
-- useref
+- useref Hook
 - Firebase Setup
 - Deploying our app to production
 - Create Signup User Account
@@ -20,8 +45,7 @@
 - Add hardcoded values to the constants file
 - Register TMDB now playing API and create API KEY and get access token
 - Get Data from TMDB
-- for video in TMDB API Location
-  > movies => video
+- Get Data from TMDB now playing movies list API
 - Custom Hook for Now Playing Movies
 - create movieSlice
 - Update store with movies data
@@ -31,90 +55,43 @@
 - Embedded the youtube video and make it autoplay and mute
 - Tailwind classes to make main Container look awesome
 - Build secondary container
-- Build movie List, Card
+- Build movie List,
+- Build movie Card
 - TMDB Image CDN URL
 - custom hook - useNowPLayingMovies,usePopularMovies,useTopRatedMovies,useUpcomingMovies
 - GPT search Page
 - GPT search bar
-- Multi language Feature in our App
+- (BONUS) Multi-language Feature in our App
+- Gpt Search API Call
+- fetched gptMoviesSuggestions from TMDB
+- created gptSlice added data
+- Resused Movie List component to make movie suggestion container
+- Memoization - Memoization is used to optimize the performance of functions by caching the results of expensive function calls and reusing those results when the same inputs occur again.
+- Added .env file
+- Adding .env file to gitignore
+- Made our Site Responsive.
+- FIX: rectified the GptSearchPage data layer and clear the GptSearchPage when you click the GPT search button
 
-## Features
+---
 
-- Login/Signup
-  - Sign In/Sing Up Form
-  - redirect to Browse Page
-- Browse(after auth)
+## Project Idea Overview
+
+- Login/Sign Up [Firebase User Authentication]
+
+  - Sign In /Sign up Form
+  - Redirect to Browse Page
+
+- Browse Page (after authentication)
+
   - Header
   - Main Movie
-    - Tailer in Background
-    - Title and description
-    - Movie Suggestions
-      - Movie List & vertical scrollable
+    - Main Container
+      - Video Title & Description
+      - Trailer Video Background
+    - Secondary container
+      - MovieLists \* N
+        - MovieCards \* N
+
 - NetflixGPT
   - Search Bar
   - Movie Suggestions
-
-## FireBase Setup
-
-- create a web app in firebase
-- sign in methods enable email and password (make sure cors extension desable)
-- click project review on left side bar
-- click on newly created web app setting icon
-- scroll down copy firebase code and paste into current src/utils/firebase.jsx
-- open the terminal.
-- click window and search as powershell
-- right click on run as administrator
-  > (PS C:\WINDOWS\system32> Set-ExecutionPolicy Bypass)
-  > press y
-- Hit Command firebase login
-- Hit Command firebase init hosting
-  ? Please select an option: Use an existing project
-  ? Select a default Firebase project for this directory: netflix-gpt-e408b (NetflixGPT)
-  ? What do you want to use as your public directory? build
-  ? Configure as a single-page app (rewrite all urls to /index.html)? No
-  ? Set up automatic builds and deploys with GitHub? No
-  ? File dist/index.html already exists. Overwrite? No
-- firebase deploy ("https://netflix-gpt-e408b.web.app")
-
-## Authentication Firebase
-
-- Go to firebase documentation and search authentication firebase
-- on left panel click on web
-  > click password Authentication (choose always firebase web modular)
-- to do dispatch again written
-  > click on manage users which on left panel
-
-## Quick URL
-
-- check users - https://console.firebase.google.com/project/netflix-gpt-e408b/authentication/users
-- firebase project url = https://console.firebase.google.com/project/netflix-gpt-e408b/overview
-- firebase documentaion url = https://firebase.google.com/docs/auth/web/manage-users?hl=en
-- .env key must be `VITE_REACT_APP_..`
-- get values from .env file `import.meta.env.VITE_REACT_APP_TMDB_KEY`
-
-## TMDB setup
-
-- go to profile themoviedb.org/settings/profile
-- choose API option use API key and documentation
-
-# twice api call
-
-- due to strict mode but in prod it will be call once
-
-# get youtube trialer
-
-- pass movie id
-- get result from video api
-- filter based on trailer where get an key
-  > generate link: https://www.youtube.com/watch?v=inN061MtPOg where key is inN061MtPOg
-- open link, click on share, click embed and copy-paste into videoBackground
-
-# fetch image url
-
-- go to google and search tmdb image [url](https://developer.themoviedb.org/docs/image-basics)
-
-# gpt API
-
-- with help of GPT plugin BUild Neflix gpt search
-- register account in https://platform.openai.com/
-- click on personal log > API Key >

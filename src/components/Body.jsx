@@ -1,7 +1,7 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Browse from "./Browse";
-import Login from "./Login";
+import Browse from "../pages/Browse";
+import Login from "../pages/Login";
 
 const Body = () => {
   const appRouter = createBrowserRouter([

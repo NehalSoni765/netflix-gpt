@@ -2,10 +2,22 @@ import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import language from "../utils/languageConstants";
 import openai from "../utils/openai";
+import { addGptMovieResult } from "../redux/gptSlice";
+import { API_OPTIONS, MOVIE_BY_NAME } from "../utils/constant";
 
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
+
+  const searchMovieTMDB = async (movie) => {
+    const data = await fetch(
+      MOVIE_BY_NAME.replace("movieName", movie),
+      API_OPTIONS
+    );
+
+    const json = await data.json();
+    return json.results;
+  };
 
   const handleGptSearchClick = async () => {
     //make an API call to GPT API and get movie results
@@ -18,12 +30,24 @@ const GptSearchBar = () => {
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
     });
+
+    if (!gptResults.choices) {
+      //error handle
+    }
+
+    const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
+    const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));//searchMovieTMDB is async function
+    const tmdbResults = await Promise.all(promiseArray);
+
+    dispatch(
+      addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
+    );
   };
 
   return (
-    <div className="pt-[7%] flex justify-center">
+    <div className="pt-[35%] md:pt-[10%] flex justify-center">
       <form
-        className="w-1/2 grid bg-black grid-cols-12"
+        className="w-full md:w-1/2 grid bg-black grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
@@ -33,7 +57,7 @@ const GptSearchBar = () => {
           placeholder={language[langKey].gptSearchPlaceholder}
         />
         <button
-          className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg"
+          className="col-span-3 my-4 mx-1 md:m-4 py-2 px-4 bg-red-700 text-white rounded-lg"
           onClick={handleGptSearchClick}
         >
           {language[langKey].search}
