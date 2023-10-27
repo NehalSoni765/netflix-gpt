@@ -1,27 +1,75 @@
-## Setup the project
+# Netflix GPT
 
-1. Fork the project
-2. Clone project using `git clone https://github.com/<YOUR-USERNAME>/netflix-gpt.git`
-3. Install dependencies `npm install`
-4. In the root directory create a `.env` file and add the TMDB API KEY and OPENAI API KEY into it.
+## Project Overview
 
-Example:
+Netflix GPT is a web-based application that combines the convenience of a streaming platform with the power of GPT-3, providing an enhanced entertainment experience. Here's an overview of its key features and a flow of completed tasks:
 
-```
-REACT_APP_OPENAI_KEY=sk-aasdadfsdfasdas234c
+## Features
 
-REACT_APP_TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZGZhNDRlMzg4NGI2N2RlMTIyODFkNWU0ZTkzYmRmOCIsInN1YiI6IjY1MmY5MTMzZWE4NGM3MDBhZWY0ZDQ3MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zbMo332NjwlLdqTFwY3kaPp2eYihs3qLp9kmWryNEWU
+### Authentication
 
-```
+- **Login/Sign Up**: The app features a user-friendly sign-in and sign-up form with Firebase integration for secure authentication.
+- **Form Validation**: Formik is used to ensure data accuracy.
 
-5. Create a firebase project for web and enable Email/Password Authentication.
-6. Inside utils folder -> edit the firebase.js file with your firebase config and also add `export const auth = getAuth();` in the file.
+### Homepage
 
-7. To run the server execute `npm run dev`
+- **Header**: A dynamic header showcases essential elements, including a hamburger menu, a Netflix logo, and a real-time search box with optimized searching via debouncing.
+- **Main Movie**: The main attraction is a movie trailer with the movie's title and description.
+- **Secondary Container**: This section lists popular, trending, and upcoming movies for a broad selection of content.
+
+### User Account
+
+- **Sign Out**: Users who are signed in can log out with a simple "Sign Out" button in the header.
+- **GPT-Powered Search**: A GPT-3-powered search feature assists users in discovering content more efficiently.
+
+### Movie Search
+
+- **Multi-Language Support**: The header provides language options that dynamically update the search input and button according to the user's language choice.
+- **GPT Movie Search**: OpenAI's API is integrated for movie search results. Users can search for a movie, and the app presents movie categories for an improved browsing experience.
+
+## Tech Stack
+
+The app is built using a robust tech stack:
+
+- Firebase: User authentication and management
+- Formik: Form validation for data accuracy
+- GPT-3: Enhances search capabilities and user interaction
+- Dynamic Content Loading: Ensures a responsive user experience
+- Multi-Language Support: For a global audience
+- TMDB API: Provides movie data for a rich viewing experience
+
+## Project Setup
+
+1. **Fork the Project**: Fork the repository to your own GitHub account.
+2. **Clone the Project**: Clone the project to your local machine using `git clone`.
+3. **Install Dependencies**: Run `npm install` to install the necessary project dependencies.
+4. **Create a .env File**: In the root directory, create a `.env` file and add the TMDB API KEY and OPENAI API KEY.
+5. **Firebase Configuration**: Configure Firebase by updating the `firebase.js` file with your Firebase project settings.
+6. **Start the Server**: Run the server with `npm run dev`.
 
 ---
+## Project Idea Overview
 
-## NetflixGPT Project Flow and Completed Task
+- Login/Sign Up [Firebase User Authentication]
+  - Sign In /Sign up Form
+  - Redirect to Browse Page
+
+- Browse Page (after authentication)
+  - Header
+  - Main Movie
+    - Main Container
+      - Video Title & Description
+      - Trailer Video Background
+    - Secondary container
+      - MovieLists \* N
+        - MovieCards \* N
+
+- NetflixGPT
+  - Search Bar
+  - Movie Suggestions
+
+
+## NetflixGPT Project Flow Task
 
 - Create react app using: npm create vite
 - Configured TailwindCSS
@@ -72,26 +120,3 @@ REACT_APP_TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZGZhNDRlMzg4NGI2N2RlMTIy
 - Made our Site Responsive.
 - FIX: rectified the GptSearchPage data layer and clear the GptSearchPage when you click the GPT search button
 
----
-
-## Project Idea Overview
-
-- Login/Sign Up [Firebase User Authentication]
-
-  - Sign In /Sign up Form
-  - Redirect to Browse Page
-
-- Browse Page (after authentication)
-
-  - Header
-  - Main Movie
-    - Main Container
-      - Video Title & Description
-      - Trailer Video Background
-    - Secondary container
-      - MovieLists \* N
-        - MovieCards \* N
-
-- NetflixGPT
-  - Search Bar
-  - Movie Suggestions
