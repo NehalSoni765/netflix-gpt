@@ -4,6 +4,8 @@
 
 Netflix GPT is a web-based application that combines the convenience of a streaming platform with the power of GPT-3, providing an enhanced entertainment experience. Here's an overview of its key features and a flow of completed tasks:
 
+[Live Demo](https://netflix-gpt-7e4d7.web.app/)
+
 ## Features
 
 ### Authentication
