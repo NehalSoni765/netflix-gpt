@@ -4,6 +4,7 @@ import language from "../utils/languageConstants";
 import openai from "../utils/openai";
 import { addGptMovieResult } from "../redux/gptSlice";
 import { API_OPTIONS, MOVIE_BY_NAME } from "../utils/constant";
+import searchMovies from "../mocks/searchMovies.json";
 
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
@@ -20,6 +21,13 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
+    dispatch(
+      addGptMovieResult({
+        movieNames: ["Razz"],
+        movieResults: [searchMovies.results] || tmdbResults,
+      })
+    );
+
     //make an API call to GPT API and get movie results
     const gptQuery =
       "Act as movie recommandation system and suggest some movies for the query: " +
@@ -35,7 +43,7 @@ const GptSearchBar = () => {
       //error handle
     }
 
-    const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
+    const gptMovies = gptResults.choices?.[0]?.message?.content.split(","); //list fo movies with list [name,name,name]
     const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));//searchMovieTMDB is async function
     const tmdbResults = await Promise.all(promiseArray);
 
