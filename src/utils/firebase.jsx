@@ -10,12 +10,12 @@ import { FIREBASE_API_KEY } from "./constant";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: FIREBASE_API_KEY,
-  authDomain: "netflix-gpt-7e4d7.firebaseapp.com",
-  projectId: "netflix-gpt-7e4d7",
-  storageBucket: "netflix-gpt-7e4d7.appspot.com",
-  messagingSenderId: "483196246319",
-  appId: "1:483196246319:web:1a7d6d5f64aa7138f429da",
-  measurementId: "G-SHW03R4H3E",
+  authDomain: "netflixgpt21.firebaseapp.com",
+  projectId: "netflixgpt21",
+  storageBucket: "netflixgpt21.appspot.com",
+  messagingSenderId: "480604168145",
+  appId: "1:480604168145:web:a5f935e3ccc1761b808af0",
+  measurementId: "G-LRB4R759ZP",
 };
 
 // Initialize Firebase
